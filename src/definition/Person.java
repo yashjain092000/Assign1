@@ -6,5 +6,5 @@ public class Person {
     private String mail;
     private int[] num;
 
-    
+
 }
