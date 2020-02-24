@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class functions {
 
-
     public void addnewcontact(ArrayList<Person> list) {
         char response = 'y';
         int count = 0;
@@ -54,11 +53,29 @@ public class functions {
     public void viewall(ArrayList<Person> list) {
         System.out.println("---Here are all your contacts---");
         System.out.println("--------*---------*--------*--------");
-        for (int i=0;i< list.size();i++) {
+        for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
             System.out.println("--------*---------*--------*--------");
             System.out.println("--------*---------*--------*--------");
         }
+    }
+
+    public void search(ArrayList<Person> list) {
+        int check=-1;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("You can search for first names: ");
+        String name = scan.nextLine();
+        for (int index = 0; index < list.size(); index++) {
+            if (name.equals(list.get(index).getFname())) {
+                check++;
+                System.out.print(index + 1+". ");
+                System.out.println(list.get(index));
+
+            }
+        }if(check==-1){
+                System.out.println("Contact not found!!");
+            }
+
     }
 
 }

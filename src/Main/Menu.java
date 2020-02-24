@@ -29,7 +29,7 @@ public class Menu {
                 ob.viewall(list);
                 break;
             case 3:
-                
+                ob.search(list);
                 break;
             case 4:
                 break;
