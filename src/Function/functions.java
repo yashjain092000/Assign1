@@ -12,10 +12,10 @@ public class functions {
         int count = 0;
         String fname;
         String lname;
-        String mail = null;
+        String mail=null;
         String num;
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please enter the name of the Person\n+First Name:");
+        System.out.println("Please enter the name of the Person\nFirst Name:");
         fname = scan.nextLine();
         System.out.println("Last Name:");
         lname = scan.nextLine();
