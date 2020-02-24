@@ -77,5 +77,17 @@ public class functions {
             }
 
     }
+    public void delete(ArrayList<Person> list){
+        Scanner scan=new Scanner(System.in);
+
+        for(int i=0;i<list.size();i++){
+            System.out.print(i+1+". ");
+            System.out.println(list.get(i).getFname() +" "+list.get(i).getLname());
+        }
+        System.out.println("Enter the no. of the contact you want to delete.");
+        int choice = scan.nextInt();
+        list.remove( choice -1 );
+    }
+
 
 }

@@ -4,6 +4,7 @@ public class Person {
     private String fname;
     private String lname;
     private String mail;
+    private String num;
 
     public Person(String fname, String lname, String num, String mail) {
         this.fname = fname;
@@ -13,8 +14,10 @@ public class Person {
 
 
     }
+    public String getLname(){
+        return lname;
+    }
 
-    private String num;
 
     public String getFname() {
         return fname;

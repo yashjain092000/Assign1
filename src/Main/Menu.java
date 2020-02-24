@@ -32,6 +32,7 @@ public class Menu {
                 ob.search(list);
                 break;
             case 4:
+                ob.delete(list);
                 break;
             case 5:
                 System.out.println("Thank you!!");
