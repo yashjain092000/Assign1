@@ -6,55 +6,59 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class functions {
-    ArrayList<Person> list=new ArrayList<>();
 
-    public void addnewcontact(){
-        char response='y';
-        int i=0;
+
+    public void addnewcontact(ArrayList<Person> list) {
+        char response = 'y';
+        int count = 0;
         String fname;
         String lname;
         String mail = null;
-        long[] num=new long[5];
-        int count=1;
-        Scanner scan=new Scanner(System.in);
+        String num;
+        Scanner scan = new Scanner(System.in);
         System.out.println("Please enter the name of the Person\n+First Name:");
-        fname=scan.nextLine();
+        fname = scan.nextLine();
         System.out.println("Last Name:");
-        lname=scan.nextLine();
+        lname = scan.nextLine();
         System.out.println("Contact Number:");
-        num[i++] = scan.nextLong();
-        while(response=='y') {
+        num = scan.nextLine();
+        while (response == 'y') {
             System.out.println("Would you like to add another contact number? (y/n)");
-            response=scan.next().charAt(0);
-            if(response=='y') {
-                System.out.println("Contact Number:");
-                num[i++] = scan.nextLong();
+            response = scan.next().charAt(0);
+            if (response == 'y') {
                 count++;
+                scan.nextLine();
+                System.out.println("Contact Number:");
+                String n1 = scan.nextLine();
+                num = num + ", " + n1;
             }
-
-
         }
+        if (count != 0)
+            num = "Contact Number(s): " + num;
+        else if (count == 0)
+            num = "Contact Number: " + num;
+
         System.out.println("Would you like to add email address? (y/n)");
-        response=scan.next().charAt(0);
-        if(response=='y')
-            mail=scan.nextLine();
-        if(count==1){
-            list.add(new Person(fname,lname,mail,num[0]));
+        response = scan.next().charAt(0);
 
+        if (response == 'y') {
+            System.out.println("E-mail: ");
+            scan.next();
+            mail = scan.nextLine();
         }
-        else if(count==2) {
-            list.add(new Person(fname,lname,mail,num[0],num[1]));
-        }
-        else if(count==3){
-            list.add(new Person(fname,lname,mail,num[0],num[1],num[2]));
-
-        }
-        else{
-            list.add(new Person(fname,lname,mail,num[0],num[1],num[2],num[3]));
-
-        }
-
+        list.add(new Person(fname, lname, num, mail));
 
 
     }
+
+    public void viewall(ArrayList<Person> list) {
+        System.out.println("---Here are all your contacts---");
+        System.out.println("--------*---------*--------*--------");
+        for (int i=0;i< list.size();i++) {
+            System.out.println(list.get(i));
+            System.out.println("--------*---------*--------*--------");
+            System.out.println("--------*---------*--------*--------");
+        }
+    }
+
 }
